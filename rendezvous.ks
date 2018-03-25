@@ -89,9 +89,7 @@
       local angDiff is mod(360 + (phAng - phAngTr), 360).
       local etaBurn is obt:period * (angDiff / 360).
 
-      mnvLib["addNode"](target:obt:apoapsis - 8000, etaBurn, false).
-      mnvLib["execNode"]().
-      mnvLib["addCircularizeNode"](false).
+      mnvLib["addHohmannNodes"](target:obt:apoapsis - 8000, etaBurn, false).
       mnvLib["execNode"]().
     }
 
