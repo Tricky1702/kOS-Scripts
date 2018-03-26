@@ -37,7 +37,7 @@ Nam eu augue eget lacus faucibus semper ultricies vel augue. Nulla commodo quis 
       // Make sure all scripts are compiled to disk to keep files small.
       if exists(initLocal) runoncepath(initLocal, lexicon("compile", true)).
 
-      if defined _LIBG_COMMON and defined _LIBG_KNU
+      if defined _LIBG_COMMON and defined _LIBG_SYSIO
       {
         knuImport(lexicon("input", "docking", "import", importLibDir, "export", exportLibDir)).
 

@@ -1,4 +1,4 @@
-.. _knuLib:
+.. _sysioLib:
 
 KNU
 ===
@@ -12,13 +12,13 @@ References
 
     * Kevin Gisi (CheersKevin) - `knu.ks`__
 
-The global variable ``_LIBG_KNU`` is defined as the `scriptpath`_ when this library is loaded.
+The global variable ``_LIBG_SYSIO`` is defined as the `scriptpath`_ when this library is loaded.
 This can be used to figure out if the library is available::
 
-    if not (defined _LIBG_KNU) and exists("0:/kOS-Lib/libg/knu.ks")
+    if not (defined _LIBG_SYSIO) and exists("0:/kOS-Lib/libg/sysio.ks")
     {
-      copypath("0:/kOS-Lib/libg/knu.ks", "1:/libg/knu.ks").
-      runoncepath("1:/libg/knu.ks").
+      copypath("0:/kOS-Lib/libg/sysio.ks", "1:/libg/sysio.ks").
+      runoncepath("1:/libg/sysio.ks").
     }
 
 Methods
@@ -32,93 +32,93 @@ Methods
       - Return Type
       - Description
 
-    * - :func:`knuFixDir`
+    * - :func:`sysioFixDir`
       - |kOSString|
       -
-    * - :func:`knuFixExt`
+    * - :func:`sysioFixExt`
       - |kOSString|
       -
-    * - :func:`knuFixPath`
+    * - :func:`sysioFixPath`
       - |kOSString|
       -
-    * - :func:`knuFixVol`
+    * - :func:`sysioFixVol`
       - |kOSString|
       -
-    * - :func:`knuNotify`
+    * - :func:`sysioNotify`
       -
       - Displays a message on the HUD.
-    * - :func:`knuNotifyDebug`
+    * - :func:`sysioNotifyDebug`
       -
       - Displays a debug message on the HUD.
-    * - :func:`knuNotifyError`
+    * - :func:`sysioNotifyError`
       -
       - Displays an error message on the HUD.
-    * - :func:`knuNotifyWarn`
+    * - :func:`sysioNotifyWarn`
       -
       - Displays a warning message on the HUD.
-    * - :func:`knuDebugOff`
+    * - :func:`sysioDebugOff`
       - 
       - 
-    * - :func:`knuDebugOn`
+    * - :func:`sysioDebugOn`
       - 
       - 
-    * - :func:`knuLog`
+    * - :func:`sysioLog`
       - 
       - 
-    * - :func:`knuDLog`
+    * - :func:`sysioDLog`
       - 
       - 
-    * - :func:`knuDPrint`
+    * - :func:`sysioDPrint`
       - 
       - 
-    * - :func:`knuRunmodeName`
+    * - :func:`sysioRunmodeName`
       - |kOSString|
       -
-    * - :func:`knuGetRunmode`
+    * - :func:`sysioGetRunmode`
       - |kOSScalar|
       -
-    * - :func:`knuSetRunmode`
+    * - :func:`sysioSetRunmode`
       - |kOSScalar|
       -
-    * - :func:`knuUseCompile`
+    * - :func:`sysioUseCompile`
       -
       - Compile kOS scripts.
-    * - :func:`knuUseRoundtrip`
+    * - :func:`sysioUseRoundtrip`
       -
       - Waits for the communication roundtrip to KSC during imports and compiling to the local drive.
-    * - :func:`knuCompile`
+    * - :func:`sysioCompile`
       -
       - Compiles a kOS script or list of kOS scripts.
-    * - :func:`knuDelete`
+    * - :func:`sysioDelete`
       -
       - Deletes a kOS script, list of kOS scripts, or imported lexicon.
-    * - :func:`knuDeleteAll`
+    * - :func:`sysioDeleteAll`
       -
       - Deletes all imported kOS scripts.
-    * - :func:`knuExport`
+    * - :func:`sysioExport`
       -
       - Store returned data from imported kOS script.
-    * - :func:`knuGetImport`
+    * - :func:`sysioGetImport`
       - |kOSLexicon|
       - Get an import or list of imports.
-    * - :func:`knuImport`
+    * - :func:`sysioImport`
       -
       - Imports a kOS script or list of kOS scripts to the local drive.
-    * - :func:`knuRequires`
+    * - :func:`sysioRequires`
       - |kOSLexicon|
       - Ensures the required kOS script or list of kOS scripts are imported.
-    * - :func:`knuRun`
+    * - :func:`sysioRun`
       - |kOSLexicon|
       - Runs a kOS script or list of kOS scripts on the local drive.
 
-.. function:: knuFixDir(d)
+.. function:: sysioFixDir(d)
 
     :parameter d: |kOSString|
     :return: Blah
     :rtype: |kOSString|
 
 
-.. function:: knuFixExt(n, ksm)
+.. function:: sysioFixExt(n, ksm)
 
     :parameter n: |kOSString|
     :parameter ksm: |kOSBoolean|, default false.
@@ -126,21 +126,21 @@ Methods
     :rtype: |kOSString|
 
 
-.. function:: knuFixPath(vol)
+.. function:: sysioFixPath(vol)
 
     :parameter p: |kOSString|
     :return: Blah
     :rtype: |kOSString|
 
 
-.. function:: knuFixVol(vol)
+.. function:: sysioFixVol(vol)
 
     :parameter vol: |kOSString|
     :return: Blah
     :rtype: |kOSString|
 
 
-.. function:: knuNotify(s, p, col)
+.. function:: sysioNotify(s, p, col)
 
     :parameter s: |kOSString| - Message to be displayed.
     :parameter p: |kOSBoolean| - Print the message to the terminal, default false.
@@ -150,7 +150,7 @@ Methods
     Displays a message on the HUD. If *p* is true, the message will also be printed to the terminal.
 
 
-.. function:: knuNotifyDebug(s)
+.. function:: sysioNotifyDebug(s)
 
     :parameter s: |kOSString| - Debug message to be displayed.
     :return: None
@@ -160,7 +160,7 @@ Methods
     The colour of the message displayed on the HUD will be RGB(0.5, 0.5, 1.0), see `RGB(r,g,b)`_.
 
 
-.. function:: knuNotifyError(s)
+.. function:: sysioNotifyError(s)
 
     :parameter s: |kOSString| - Error message to be displayed.
     :return: None
@@ -170,7 +170,7 @@ Methods
     The colour of the message displayed on the HUD will be red.
 
 
-.. function:: knuNotifyWarn(s)
+.. function:: sysioNotifyWarn(s)
 
     :parameter s: |kOSString| - Warning message to be displayed.
     :return: None
@@ -180,59 +180,59 @@ Methods
     The colour of the message displayed on the HUD will be yellow.
 
 
-.. function:: knuDebugOff()
+.. function:: sysioDebugOff()
 
     :return: None
 
 
-.. function:: knuDebugOn(f)
+.. function:: sysioDebugOn(f)
 
     :parameter f: |kOSString|, default "".
     :return: None
 
 
-.. function:: knuLog(t, f)
+.. function:: sysioLog(t, f)
 
     :parameter t: |kOSString|
     :parameter f: |kOSString|
     :return: None
 
 
-.. function:: knuDLog(t, f)
+.. function:: sysioDLog(t, f)
 
     :parameter t: |kOSString|
     :parameter f: |kOSString|
     :return: None
 
 
-.. function:: knuDPrint(s, p)
+.. function:: sysioDPrint(s, p)
 
     :parameter s: |kOSString|
     :parameter p: |kOSBoolean|, default false.
     :return: None
 
 
-.. function:: knuRunmodeName(f)
+.. function:: sysioRunmodeName(f)
 
     :parameter f: |kOSString|, default "".
     :return: Blah
     :rtype: |kOSString|
 
 
-.. function:: knuGetRunmode()
+.. function:: sysioGetRunmode()
 
     :return: Blah
     :rtype: The variable type stored in the runmode file.
 
 
-.. function:: knuSetRunmode(rm)
+.. function:: sysioSetRunmode(rm)
 
     :parameter rm: |kOSBoolean|, |kOSScalar|, or |kOSString|, default 0.
     :return: Blah
     :rtype: The type that was passed in to ``rm``.
 
 
-.. function:: knuUseCompile(f)
+.. function:: sysioUseCompile(f)
 
     :parameter f: |kOSBoolean| - Compile kOS scripts if true.
     :return: None
@@ -242,7 +242,7 @@ Methods
     Helps if you are low on disk space. Not guaranteed to stop you running out of space.
 
 
-.. function:: knuUseRoundtrip(f)
+.. function:: sysioUseRoundtrip(f)
 
     :parameter f: |kOSBoolean| - Wait for roundtrip if true.
     :return: None
@@ -252,7 +252,7 @@ Methods
     This can be used for immersion.
 
 
-.. function:: knuCompile(il)
+.. function:: sysioCompile(il)
 
     :parameter il: |kOSLexicon|, input lexicon.
     :return: None
@@ -267,7 +267,7 @@ Methods
     Compiles a kOS script or list of kOS scripts.
 
 
-.. function:: knuDelete(il)
+.. function:: sysioDelete(il)
 
     :parameter il: |kOSLexicon|, input lexicon.
     :return: None
@@ -281,14 +281,14 @@ Methods
     Deletes a kOS script, list of kOS scripts, or lexicon of imports.
 
 
-.. function:: knuDeleteAll()
+.. function:: sysioDeleteAll()
 
     :return: None
 
     Deletes all imported kOS scripts.
 
 
-.. function:: knuExport(d)
+.. function:: sysioExport(d)
 
     :parameter d: Any kOS type.
     :return: None
@@ -296,7 +296,7 @@ Methods
     Store returned data from imported kOS script.
 
 
-.. function:: knuGetImport(n, d)
+.. function:: sysioGetImport(n, d)
 
     :parameter il: |kOSLexicon|, input lexicon.
     :return: A lexicon containing the imported data.
@@ -310,7 +310,7 @@ Methods
     Get an import or list of imports.
 
 
-.. function:: knuImport(il)
+.. function:: sysioImport(il)
 
     :parameter il: |kOSLexicon|, input lexicon.
     :return: None
@@ -325,7 +325,7 @@ Methods
     Imports a kOS script or list of kOS scripts to the local drive.
 
 
-.. function:: knuRequires(il)
+.. function:: sysioRequires(il)
 
     :parameter il: |kOSLexicon|, input lexicon.
     :return: A lexicon containing the imported data.
@@ -342,7 +342,7 @@ Methods
     Ensures the required kOS script or list of kOS scripts are imported.
 
 
-.. function:: knuRun(il)
+.. function:: sysioRun(il)
 
     :parameter il: |kOSLexicon|, input lexicon.
     :return: A lexicon containing the imported data.

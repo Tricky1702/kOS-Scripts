@@ -36,12 +36,12 @@ This can be used to figure out if the library is available::
           if exists(initLocal) runoncepath(initLocal).
 
           // Done
-          if defined _LIBG_COMMON and defined _LIBG_KNU
+          if defined _LIBG_COMMON and defined _LIBG_SYSIO
             notify("Ready", true).
           else
           {
             print "common: " + (defined _LIBG_COMMON).
-            print "knu:    " + (defined _LIBG_KNU).
+            print "knu:    " + (defined _LIBG_SYSIO).
           }
         }.
 
@@ -76,7 +76,7 @@ Example of using Comms
           // Make sure all scripts are compiled to disk to keep files small.
           if exists(initLocal) runoncepath(initLocal, lexicon("compile", true)).
 
-          if defined _LIBG_COMMON and defined _LIBG_KNU
+          if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
             local commsLib is knuImport("comms", importLibDir, exportLibDir).
 

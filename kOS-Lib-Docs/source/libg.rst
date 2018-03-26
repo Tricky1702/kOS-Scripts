@@ -7,4 +7,4 @@ Global libs
     :maxdepth: 1
 
     libg/common
-    libg/knu
+    libg/sysio
