@@ -65,7 +65,7 @@ Variables
 
 .. global:: vecorigin
 
-    Vector origin, :math:`v = \left(0, 0, 0\right)`
+    Vector origin, :math:`\vec{v} = \left(0, 0, 0\right)`
 
 .. global:: bignum
 
@@ -258,24 +258,27 @@ Methods
 .. function:: isnormalized(v1)
 
     :parameter v1: `Vector`_
-    :return: Blah
+    :return: true if :math:`\vec{v_1}` is normalised, otherwise false.
     :rtype: |kOSBoolean|
 
 
 .. function:: cbrt(n)
 
     :parameter n: |kOSScalar|
-    :return: Blah
+    :return: :math:`\sqrt[3]{n}`
     :rtype: |kOSScalar|
 
+    Cube root of **n**.
 
 .. function:: vectormixedproduct(v1, v2, v3)
 
     :parameter v1: `Vector`_
     :parameter v2: `Vector`_
     :parameter v3: `Vector`_
-    :return: Blah
+    :return: :math:`\vec{v_1} \cdot \left(\vec{v_2} \times \vec{v_3}\right)`
     :rtype: |kOSScalar|
+
+    `Scalar triple product`_ of the 3 input vectors.
 
 
 .. function:: vmxp(v1, v2, v3)
@@ -283,8 +286,10 @@ Methods
     :parameter v1: `Vector`_
     :parameter v2: `Vector`_
     :parameter v3: `Vector`_
-    :return: Blah
+    :return: :math:`\vec{v_1} \cdot \left(\vec{v_2} \times \vec{v_3}\right)`
     :rtype: |kOSScalar|
+
+    Alias of :func:`vectormixedproduct`
 
 
 .. function:: scalartripleproduct(v1, v2, v3)
@@ -292,8 +297,10 @@ Methods
     :parameter v1: `Vector`_
     :parameter v2: `Vector`_
     :parameter v3: `Vector`_
-    :return: Blah
+    :return: :math:`\vec{v_1} \cdot \left(\vec{v_2} \times \vec{v_3}\right)`
     :rtype: |kOSScalar|
+
+    Alias of :func:`vectormixedproduct`
 
 
 .. function:: strp(v1, v2, v3)
@@ -301,8 +308,10 @@ Methods
     :parameter v1: `Vector`_
     :parameter v2: `Vector`_
     :parameter v3: `Vector`_
-    :return: Blah
+    :return: :math:`\vec{v_1} \cdot \left(\vec{v_2} \times \vec{v_3}\right)`
     :rtype: |kOSScalar|
+
+    Alias of :func:`vectormixedproduct`
 
 
 .. function:: vectortripleproduct(v1, v2, v3)
@@ -310,8 +319,10 @@ Methods
     :parameter v1: `Vector`_
     :parameter v2: `Vector`_
     :parameter v3: `Vector`_
-    :return: Blah
+    :return: :math:`\vec{v_1} \times \left(\vec{v_2} \times \vec{v_3}\right)`
     :rtype: `Vector`_
+
+    `Vector triple product`_ of the 3 input vectors.
 
 
 .. function:: vtrp(v1, v2, v3)
@@ -319,8 +330,10 @@ Methods
     :parameter v1: `Vector`_
     :parameter v2: `Vector`_
     :parameter v3: `Vector`_
-    :return: Blah
+    :return: :math:`\vec{v_1} \times \left(\vec{v_2} \times \vec{v_3}\right)`
     :rtype: `Vector`_
+
+    Alias of :func:`vectortripleproduct`
 
 
 .. function:: killWarp()
@@ -342,3 +355,5 @@ Methods
 
 .. _scriptpath: http://ksp-kos.github.io/KOS_DOC/commands/files.html#scriptpath
 .. _Vector: http://ksp-kos.github.io/KOS_DOC/math/vector.html#vectors
+.. _Scalar triple product: https://en.wikipedia.org/wiki/Triple_product#Scalar_triple_product
+.. _Vector triple product: https://en.wikipedia.org/wiki/Triple_product#Vector_triple_product

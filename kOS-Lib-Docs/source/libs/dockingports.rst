@@ -24,7 +24,7 @@ This can be used to figure out if the library is available::
 
 .. note::
 
-    |commonLib| and |knuLib| need to be loaded for this library to work.
+    |commonLib| and |sysioLib| need to be loaded for this library to work.
 
     Simple script to achieve this (expanded :ref:`Docking Ports example <dockingportsLib example>`)::
 
@@ -79,6 +79,12 @@ Methods
     * - :func:`getReadyPortsFromTarget`
       - |kOSList|
       - Creates a list of docking ports that are in the ready |kOSDockingPortState| for the specified vessel.
+    * - :func:`isDockingPort`
+      - |kOSBoolean|
+      - Check if a part is a docking port.
+    * - :func:`potentialTargets`
+      - |kOSList|
+      - Creates a list of targets that have docking ports.
     * - :func:`search`
       - |kOSList|
       - A flexible function to find suitable ports for docking.
@@ -137,6 +143,22 @@ Methods
 
     Creates a list of docking ports that are in the ready |kOSDockingPortState| for the specified vessel.
 
+.. function:: isDockingPort(p)
+
+    :parameter p: |kOSDockingPort| to check.
+    :return: true if the part is a |kOSDockingPort|, otherwise false.
+    :rtype: |kOSBoolean|
+
+    Check if a part is a docking port.
+
+.. function:: potentialTargets()
+
+    :return: A list of targets that have docking ports.
+    :rtype: |kOSList|
+
+    Creates a list of targets that have docking ports.
+
+
 .. _dockingportsLib search:
 .. function:: search(pl, wpl)
 
@@ -164,7 +186,7 @@ Methods
 
     ::
 
-        local dockingportsLib is knuRequires
+        local dockingportsLib is sysioRequires
         (
           lexicon
           (
@@ -183,9 +205,9 @@ Methods
         if allShipReadyPorts:empty or allTargetReadyPorts:empty
         {
           if allShipReadyPorts:empty
-            notifywarn("No docking ports are available to be used on this craft").
+            sysioNotifyWarn("No docking ports are available to be used on this craft").
           if allTargetReadyPorts:empty
-            notifywarn("No docking ports are available to be used on the target craft").
+            sysioNotifyWarn("No docking ports are available to be used on the target craft").
 
           return.
         }
@@ -228,7 +250,7 @@ Methods
 
         if not isdp(sPort) or not isdp(oPort)
         {
-          notifywarn("No suitable docking ports are available").
+          sysioNotifyWarn("No suitable docking ports are available").
 
           return.
         }
@@ -272,8 +294,9 @@ Example of using Docking Ports
         }.
 
 .. |commonLib| replace:: :ref:`Common <commonLib>`
-.. |knuLib| replace:: :ref:`KNU <knuLib>`
+.. |sysioLib| replace:: :ref:`SysIO <sysioLib>`
 
+.. |kOSBoolean| replace:: :ref:`Boolean <kosdoc:bool>`
 .. |kOSDockingPort| replace:: :ref:`DockingPort <kosdoc:dockingport>`
 .. |kOSDockingPortState| replace:: :attr:`State <kosdoc:attr:dockingport:state>`
 .. |kOSList| replace:: :ref:`List <kosdoc:list>`

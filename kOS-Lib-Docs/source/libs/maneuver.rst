@@ -33,7 +33,7 @@ This can be used to figure out if the library is available::
 
 .. note::
 
-    |commonLib| and |knuLib| need to be loaded for this library to work.
+    |commonLib| and |sysioLib| need to be loaded for this library to work.
 
     Simple script to achieve this (expanded :ref:`Maneuver example <maneuverLib example>`)::
 
@@ -355,7 +355,7 @@ Example of using Maneuver
         }.
 
 .. |commonLib| replace:: :ref:`Common <commonLib>`
-.. |knuLib| replace:: :ref:`KNU <knuLib>`
+.. |sysioLib| replace:: :ref:`SysIO <sysioLib>`
 .. |bodyCacheLib| replace:: :ref:`BodyCache <bodyCacheLib>`
 .. |enginesLib| replace:: :ref:`Engines <enginesLib>`
 .. |orbitsLib| replace:: :ref:`Orbits <orbitsLib>`

@@ -1,7 +1,7 @@
 .. _sysioLib:
 
-KNU
-===
+SysIO
+=====
 
 .. contents:: Contents
     :local:

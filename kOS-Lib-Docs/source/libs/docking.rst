@@ -29,7 +29,7 @@ This can be used to figure out if the library is available::
 
 .. note::
 
-    |commonLib| and |knuLib| need to be loaded for this library to work.
+    |commonLib| and |sysioLib| need to be loaded for this library to work.
 
     Simple script to achieve this (expanded :ref:`Docking example <dockingLib example>`)::
 
@@ -194,7 +194,7 @@ Example of using Docking
 
 .. |commonLib| replace:: :ref:`Common <commonLib>`
 .. |dockingportsLib| replace:: :ref:`DockingPorts <dockingportsLib>`
-.. |knuLib| replace:: :ref:`KNU <knuLib>`
+.. |sysioLib| replace:: :ref:`SysIO <sysioLib>`
 .. |maneuverLib| replace:: :ref:`Maneuver <maneuverLib>`
 
 .. |kOSBoolean| replace:: :ref:`Boolean <kosdoc:bool>`

@@ -24,7 +24,7 @@ This can be used to figure out if the library is available::
 
 .. note::
 
-    |commonLib| and |knuLib| need to be loaded for this library to work.
+    |commonLib| and |sysioLib| need to be loaded for this library to work.
 
     Simple script to achieve this (expanded :ref:`Engines example <enginesLib example>`)::
 
@@ -88,7 +88,7 @@ Example of using Engines
         }.
 
 .. |commonLib| replace:: :ref:`Common <commonLib>`
-.. |knuLib| replace:: :ref:`KNU <knuLib>`
+.. |sysioLib| replace:: :ref:`SysIO <sysioLib>`
 
 .. _scriptpath: http://ksp-kos.github.io/KOS_DOC/commands/files.html#scriptpath
 
