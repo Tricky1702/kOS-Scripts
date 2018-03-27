@@ -12,7 +12,8 @@ from sphinx.locale import l_, _
 from sphinx.domains import Domain, ObjType, Index
 from sphinx.directives import ObjectDescription
 from sphinx.util.nodes import make_refnode
-from sphinx.util.compat import Directive
+# from sphinx.util.compat import Directive
+from sphinx.util import compat
 from sphinx.util.docfields import Field, GroupedField, TypedField
 
 ks_sig_re = re.compile(r'''
