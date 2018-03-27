@@ -40,13 +40,13 @@ you should adjust your path based on your actual repository location)
   ```
 
 6. Review the output for errors and warnings.  In the above example you would
-  find the compiled html files at `C:\KOS\docs\gh-pages`
+  find the compiled html files at `C:\KOS\docs\build\html`
 
 7. (Optional) You may browse the generated html using file urls, or by using
   Python's included SimpleHTTPServer:
   ```
-  C:\KOS\docs>cd gh-pages
-  C:\KOS\docs\gh-pages>python -m SimpleHTTPServer 8000
+  C:\KOS\docs>cd build\html
+  C:\KOS\docs\build\html>python -m SimpleHTTPServer 8000
   Serving HTTP on 0.0.0.0 port 8000...
   ```
 
