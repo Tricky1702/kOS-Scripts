@@ -6,7 +6,7 @@ theme.
 
 #Getting started on Windows
 
-(For this example, the KOS-Scripts repository is assumed to be located at `C:\kOS-Scripts`,
+(For this example, the kOS-Scripts repository is assumed to be located at `C:\kOS-Scripts`,
 you should adjust your path based on your actual repository location)
 
 1. If you don't already have Python installed, install the latest version in the
@@ -34,7 +34,7 @@ you should adjust your path based on your actual repository location)
 
 5. Switch to the docs directory and run the make batch file:
   ```
-  C:\>cd KOS\kOS-Lib-Docs
+  C:\>cd kOS-Scripts\kOS-Lib-Docs
   C:\kOS-Scripts\kOS-Lib-Docs>make clean
   C:\kOS-Scripts\kOS-Lib-Docs>make html
   ```
