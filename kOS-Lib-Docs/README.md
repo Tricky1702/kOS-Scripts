@@ -6,7 +6,7 @@ theme.
 
 #Getting started on Windows
 
-(For this example, the KOS repository is assumed to be located at `C:\KOS`,
+(For this example, the KOS-Scripts repository is assumed to be located at `C:\kOS-Scripts`,
 you should adjust your path based on your actual repository location)
 
 1. If you don't already have Python installed, install the latest version in the
@@ -35,18 +35,18 @@ you should adjust your path based on your actual repository location)
 5. Switch to the docs directory and run the make batch file:
   ```
   C:\>cd KOS\kOS-Lib-Docs
-  C:\KOS\kOS-Lib-Docs>make clean
-  C:\KOS\kOS-Lib-Docs>make html
+  C:\kOS-Scripts\kOS-Lib-Docs>make clean
+  C:\kOS-Scripts\kOS-Lib-Docs>make html
   ```
 
 6. Review the output for errors and warnings.  In the above example you would
-  find the compiled html files at `C:\KOS\kOS-Lib-Docs\build\html`
+  find the compiled html files at `C:\kOS-Scripts\kOS-Lib-Docs\build\html`
 
 7. (Optional) You may browse the generated html using file urls, or by using
   Python's included SimpleHTTPServer:
   ```
-  C:\KOS\kOS-Lib-Docs>cd build\html
-  C:\KOS\kOS-Lib-Docs\build\html>python -m SimpleHTTPServer 8000
+  C:\kOS-Scripts\kOS-Lib-Docs>cd build\html
+  C:\kOS-Scripts\kOS-Lib-Docs\build\html>python -m SimpleHTTPServer 8000
   Serving HTTP on 0.0.0.0 port 8000...
   ```
 
