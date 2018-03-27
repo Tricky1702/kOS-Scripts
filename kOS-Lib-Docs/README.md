@@ -34,19 +34,19 @@ you should adjust your path based on your actual repository location)
 
 5. Switch to the docs directory and run the make batch file:
   ```
-  C:\>cd KOS\docs
-  C:\KOS\docs>make clean
-  C:\KOS\docs>make html
+  C:\>cd KOS\kOS-Lib-Docs
+  C:\KOS\kOS-Lib-Docs>make clean
+  C:\KOS\kOS-Lib-Docs>make html
   ```
 
 6. Review the output for errors and warnings.  In the above example you would
-  find the compiled html files at `C:\KOS\docs\build\html`
+  find the compiled html files at `C:\KOS\kOS-Lib-Docs\build\html`
 
 7. (Optional) You may browse the generated html using file urls, or by using
   Python's included SimpleHTTPServer:
   ```
-  C:\KOS\docs>cd build\html
-  C:\KOS\docs\build\html>python -m SimpleHTTPServer 8000
+  C:\KOS\kOS-Lib-Docs>cd build\html
+  C:\KOS\kOS-Lib-Docs\build\html>python -m SimpleHTTPServer 8000
   Serving HTTP on 0.0.0.0 port 8000...
   ```
 
