@@ -17,9 +17,9 @@ The global variable ``_LIBS_ORBITS`` is defined as the `scriptpath`_ when this l
 This can be used to figure out if the library is available::
 
     // Import the library if it isn't available yet.
-    if not (defined _LIBS_ORBITS) knuImport("orbits", importLibDir, exportLibDir).
+    if not (defined _LIBS_ORBITS) sysioImport("orbits", importLibDir, exportLibDir).
 
-    local orbitsLib is knuGetImport("orbits", exportLibDir).
+    local orbitsLib is sysioGetImport("orbits", exportLibDir).
     // Do stuff with this lib.
     ...
 
@@ -84,10 +84,10 @@ Example of using Orbits
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            local orbitsLib is knuImport("orbits", importLibDir, exportLibDir).
+            local orbitsLib is sysioImport("orbits", importLibDir, exportLibDir).
 
             ...
-            knuDelete(orbitsLib).
+            sysioDelete(orbitsLib).
           }
         }.
 

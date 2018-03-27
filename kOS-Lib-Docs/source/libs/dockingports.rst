@@ -13,11 +13,11 @@ This can be used to figure out if the library is available::
     // Import the library if it isn't available yet.
     if not (defined _LIBS_DOCKINGPORTS)
     {
-      knuImport(lexicon("input", "dockingports", "import", importLibDir, "export", exportLibDir)).
-      knuRun(lexicon("input", "dockingports", "directory", exportLibDir)).
+      sysioImport(lexicon("input", "dockingports", "import", importLibDir, "export", exportLibDir)).
+      sysioRun(lexicon("input", "dockingports", "directory", exportLibDir)).
     }
 
-    local dockportsLib is knuGetImport(lexicon("input", "dockingports", "directory", exportLibDir)).
+    local dockportsLib is sysioGetImport(lexicon("input", "dockingports", "directory", exportLibDir)).
     // Find all ports in the ready state for the ship.
     local allShipReadyPorts is dockportsLib["getReadyPortsFromTarget"](ship).
     ...
@@ -277,9 +277,9 @@ Example of using Docking Ports
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            knuImport(lexicon("input", "dockingports", "import", importLibDir, "export", exportLibDir)).
+            sysioImport(lexicon("input", "dockingports", "import", importLibDir, "export", exportLibDir)).
 
-            local dockportsLib is knuRun(lexicon("input", "dockingports", "directory", exportLibDir)).
+            local dockportsLib is sysioRun(lexicon("input", "dockingports", "directory", exportLibDir)).
             local station is vessel("My Space Station").
             local stationPortTag is "Main Station Docking Port".
             local myPortTag is "My Vessel Docking Port".
@@ -287,9 +287,9 @@ Example of using Docking Ports
             local myPort is dockingportsLib["getPortFromTargetReadyPorts"](myPortTag, ship).
 
             if dockportsLib["isDockingPort"](stationPort) and dockportsLib["isDockingPort"](myPort)
-              knuNotify("Both ports are valid", true).
+              sysioNotify("Both ports are valid", true).
 
-            knuDelete(dockportsLib).
+            sysioDelete(dockportsLib).
           }
         }.
 

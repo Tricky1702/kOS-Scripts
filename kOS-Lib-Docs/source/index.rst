@@ -39,15 +39,15 @@ Nam eu augue eget lacus faucibus semper ultricies vel augue. Nulla commodo quis 
 
       if defined _LIBG_COMMON and defined _LIBG_SYSIO
       {
-        knuImport(lexicon("input", "docking", "import", importLibDir, "export", exportLibDir)).
+        sysioImport(lexicon("input", "docking", "import", importLibDir, "export", exportLibDir)).
 
-        local dockLib is knuRun(lexicon("input", "docking", "directory", exportLibDir)).
+        local dockLib is sysioRun(lexicon("input", "docking", "directory", exportLibDir)).
         local station is vessel("My Space Station").
         local stationPort is "Main Docking Port".
         local myDockingPort is "My Docking Port".
 
         dockLib["dock"](station, stationPort, myDockingPort).
-        knuDelete(dockLib).
+        sysioDelete(dockLib).
       }
     }.
 

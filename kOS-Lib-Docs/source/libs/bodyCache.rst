@@ -18,11 +18,11 @@ This can be used to figure out if the library is available::
     // Import the library if it isn't available yet.
     if not (defined _LIBS_BODYCACHE)
     {
-      knuImport(lexicon("input", "bodyCache", "import", importLibDir, "export", exportLibDir)).
-      knuRun(lexicon("input", "bodyCache", "directory", exportLibDir)).
+      sysioImport(lexicon("input", "bodyCache", "import", importLibDir, "export", exportLibDir)).
+      sysioRun(lexicon("input", "bodyCache", "directory", exportLibDir)).
     }
 
-    local bodyCacheLib is knuGetImport(lexicon("input", "bodyCache", "directory", exportLibDir)).
+    local bodyCacheLib is sysioGetImport(lexicon("input", "bodyCache", "directory", exportLibDir)).
     // Do stuff with this lib.
     ...
 
@@ -46,7 +46,7 @@ This can be used to figure out if the library is available::
 
           // Done
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
-            knuNotify("Ready", true).
+            sysioNotify("Ready", true).
           else
           {
             print "common: " + (defined _LIBG_COMMON).
@@ -88,12 +88,12 @@ Example of using BodyCache
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            knuImport(lexicon("input", "bodyCache", "import", importLibDir, "export", exportLibDir)).
+            sysioImport(lexicon("input", "bodyCache", "import", importLibDir, "export", exportLibDir)).
 
-            local bodyCacheLib is knuRun(lexicon("input", "bodyCache", "directory", exportLibDir)).
+            local bodyCacheLib is sysioRun(lexicon("input", "bodyCache", "directory", exportLibDir)).
 
             ...
-            knuDelete(bodyCacheLib).
+            sysioDelete(bodyCacheLib).
           }
         }.
 

@@ -16,9 +16,9 @@ The global variable ``_LIBS_TELEMETRY`` is defined as the `scriptpath`_ when thi
 This can be used to figure out if the library is available::
 
     // Import the library if it isn't available yet.
-    if not (defined _LIBS_TELEMETRY) knuImport("telemetry", importLibDir, exportLibDir).
+    if not (defined _LIBS_TELEMETRY) sysioImport("telemetry", importLibDir, exportLibDir).
 
-    local telemetryLib is knuGetImport("telemetry", exportLibDir).
+    local telemetryLib is sysioGetImport("telemetry", exportLibDir).
     // Do stuff with this lib.
     ...
 
@@ -83,10 +83,10 @@ Example of using Telemetry
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            local telemetryLib is knuImport("telemetry", importLibDir, exportLibDir).
+            local telemetryLib is sysioImport("telemetry", importLibDir, exportLibDir).
 
             ...
-            knuDelete(telemetryLib).
+            sysioDelete(telemetryLib).
           }
         }.
 

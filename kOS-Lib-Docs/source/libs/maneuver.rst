@@ -21,11 +21,11 @@ This can be used to figure out if the library is available::
     // Import the library if it isn't available yet.
     if not (defined _LIBS_MANEUVER)
     {
-      knuImport(lexicon("input", "maneuver", "import", importLibDir, "export", exportLibDir)).
-      knuRun(lexicon("input", "maneuver", "directory", exportLibDir)).
+      sysioImport(lexicon("input", "maneuver", "import", importLibDir, "export", exportLibDir)).
+      sysioRun(lexicon("input", "maneuver", "directory", exportLibDir)).
     }
 
-    local maneuverLib is knuGetImport(lexicon("input", "maneuver", "directory", exportLibDir)).
+    local maneuverLib is sysioGetImport(lexicon("input", "maneuver", "directory", exportLibDir)).
     // Circularize the orbit.
     maneuverLib["circularize"]().
     maneuverLib["execNode"]().
@@ -344,13 +344,13 @@ Example of using Maneuver
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            knuImport(lexicon("input", "maneuver", "import", importLibDir, "export", exportLibDir)).
+            sysioImport(lexicon("input", "maneuver", "import", importLibDir, "export", exportLibDir)).
 
-            local maneuverLib is knuRun(lexicon("input", "maneuver", "directory", exportLibDir)).
+            local maneuverLib is sysioRun(lexicon("input", "maneuver", "directory", exportLibDir)).
 
             maneuverLib["circularize"]().
             maneuverLib["execNode"]().
-            knuDelete(maneuverLib).
+            sysioDelete(maneuverLib).
           }
         }.
 

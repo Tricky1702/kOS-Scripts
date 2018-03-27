@@ -16,9 +16,9 @@ The global variable ``_LIBS_ENGINES`` is defined as the `scriptpath`_ when this 
 This can be used to figure out if the library is available::
 
     // Import the library if it isn't available yet.
-    if not (defined _LIBS_ENGINES) knuImport("engines", importLibDir, exportLibDir).
+    if not (defined _LIBS_ENGINES) sysioImport("engines", importLibDir, exportLibDir).
 
-    local ascentLib is knuGetImport("engines", exportLibDir).
+    local ascentLib is sysioGetImport("engines", exportLibDir).
     // Do stuff with this lib.
     ...
 
@@ -80,10 +80,10 @@ Example of using Engines
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            local enginesLib is knuImport("engines", importLibDir, exportLibDir).
+            local enginesLib is sysioImport("engines", importLibDir, exportLibDir).
 
             ...
-            knuDelete(enginesLib).
+            sysioDelete(enginesLib).
           }
         }.
 

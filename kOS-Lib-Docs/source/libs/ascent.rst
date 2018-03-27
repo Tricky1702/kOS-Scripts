@@ -20,11 +20,11 @@ This can be used to figure out if the library is available::
     // Import the library if it isn't available yet.
     if not (defined _LIBS_ASCENT)
     {
-      knuImport(lexicon("input", "ascent", "import", importLibDir, "export", exportLibDir)).
-      knuRun(lexicon("input", "ascent", "directory", exportLibDir)).
+      sysioImport(lexicon("input", "ascent", "import", importLibDir, "export", exportLibDir)).
+      sysioRun(lexicon("input", "ascent", "directory", exportLibDir)).
     }
 
-    local ascentLib is knuGetImport(lexicon("input", "ascent", "directory", exportLibDir)).
+    local ascentLib is sysioGetImport(lexicon("input", "ascent", "directory", exportLibDir)).
 
     ascentLib["doAscent"]().
     ...
@@ -49,7 +49,7 @@ This can be used to figure out if the library is available::
 
           // Done
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
-            knuNotify("Ready", true).
+            sysioNotify("Ready", true).
           else
           {
             print "common: " + (defined _LIBG_COMMON).
@@ -115,16 +115,16 @@ Example of using Ascent
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            knuImport(lexicon("input", "ascent", "import", importLibDir, "export", exportLibDir)).
+            sysioImport(lexicon("input", "ascent", "import", importLibDir, "export", exportLibDir)).
 
-            local ascentLib is knuRun(lexicon("input", "ascent", "directory", exportLibDir)).
+            local ascentLib is sysioRun(lexicon("input", "ascent", "directory", exportLibDir)).
 
             // Ascend east until the apoapsis is 80km.
             ascentLib["doAscent"](90, 80000).
             // Raise the periapsis to 50km so the ascent stage will splash down.
             ascentLib["raisePeriapsis"](50000).
             // Remove the file from the local drive and memory (if not required by anything else).
-            knuDelete(ascentLib).
+            sysioDelete(ascentLib).
           }
         }.
 

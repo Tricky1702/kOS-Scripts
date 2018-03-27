@@ -16,9 +16,9 @@ The global variable ``_LIBS_RENDEZVOUS`` is defined as the `scriptpath`_ when th
 This can be used to figure out if the library is available::
 
     // Import the library if it isn't available yet.
-    if not (defined _LIBS_RENDEZVOUS) knuImport("rendezvous", importLibDir, exportLibDir).
+    if not (defined _LIBS_RENDEZVOUS) sysioImport("rendezvous", importLibDir, exportLibDir).
 
-    local rendezvousLib is knuGetImport("rendezvous", exportLibDir).
+    local rendezvousLib is sysioGetImport("rendezvous", exportLibDir).
     // Do stuff with this lib.
     ...
 
@@ -84,10 +84,10 @@ Example of using Rendezvous
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            local rendezvousLib is knuImport("rendezvous", importLibDir, exportLibDir).
+            local rendezvousLib is sysioImport("rendezvous", importLibDir, exportLibDir).
 
             ...
-            knuDelete(rendezvousLib).
+            sysioDelete(rendezvousLib).
           }
         }.
 

@@ -11,9 +11,9 @@ The global variable ``_LIBS_COMMS`` is defined as the `scriptpath`_ when this li
 This can be used to figure out if the library is available::
 
     // Import the library if it isn't available yet.
-    if not (defined _LIBS_COMMS) knuImport("comms", importLibDir, exportLibDir).
+    if not (defined _LIBS_COMMS) sysioImport("comms", importLibDir, exportLibDir).
 
-    local commsLib is knuGetImport("comms", exportLibDir).
+    local commsLib is sysioGetImport("comms", exportLibDir).
     // Do stuff with this lib.
     ...
 
@@ -78,10 +78,10 @@ Example of using Comms
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            local commsLib is knuImport("comms", importLibDir, exportLibDir).
+            local commsLib is sysioImport("comms", importLibDir, exportLibDir).
 
             ...
-            knuDelete(commsLib).
+            sysioDelete(commsLib).
           }
         }.
 

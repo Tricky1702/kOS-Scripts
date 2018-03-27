@@ -18,11 +18,11 @@ This can be used to figure out if the library is available::
     // Import the library if it isn't available yet.
     if not (defined _LIBS_AUTOMATIC)
     {
-      knuImport(lexicon("input", "automatic", "import", importLibDir, "export", exportLibDir)).
-      knuRun(lexicon("input", "automatic", "directory", exportLibDir)).
+      sysioImport(lexicon("input", "automatic", "import", importLibDir, "export", exportLibDir)).
+      sysioRun(lexicon("input", "automatic", "directory", exportLibDir)).
     }
 
-    local automaticLib is knuGetImport(lexicon("input", "automatic", "directory", exportLibDir)).
+    local automaticLib is sysioGetImport(lexicon("input", "automatic", "directory", exportLibDir)).
     // Do stuff with this lib.
     ...
 
@@ -46,7 +46,7 @@ This can be used to figure out if the library is available::
 
           // Done
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
-            knuNotify("Ready", true).
+            sysioNotify("Ready", true).
           else
           {
             print "common: " + (defined _LIBG_COMMON).
@@ -83,12 +83,12 @@ Example of using Automatic
 
           if defined _LIBG_COMMON and defined _LIBG_SYSIO
           {
-            knuImport(lexicon("input", "automatic", "import", importLibDir, "export", exportLibDir)).
+            sysioImport(lexicon("input", "automatic", "import", importLibDir, "export", exportLibDir)).
 
-            local automaticLib is knuRun(lexicon("input", "automatic", "directory", exportLibDir)).
+            local automaticLib is sysioRun(lexicon("input", "automatic", "directory", exportLibDir)).
 
             ...
-            knuDelete(automaticLib).
+            sysioDelete(automaticLib).
           }
         }.
 
