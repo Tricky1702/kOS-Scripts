@@ -21,17 +21,22 @@
   // Terminal
   global openTerminal is
   {
-    parameter kpr, w is 0, h is 0.
+    parameter kpr, wid is 0, hgt is 0.
 
-    if w:istype("String") set w to w:tonumber().
-    if h:istype("String") set h to h:tonumber().
-    if not (kpr:istype("kOSProcessor") and w:istype("Scalar") and h:istype("Scalar")) return.
-    if w > 0 set terminal:width to w. if h > 0 set terminal:height to h.
+    if not kpr:istype("kOSProcessor") return.
+
+    if wid:istype("String") set wid to wid:tonumber().
+    else if not wid:istype("Scalar") set wid to 0.
+
+    if hgt:istype("String") set hgt to hgt:tonumber().
+    else if not hgt:istype("Scalar") set hgt to 0.
+
+    if wid > 0 set terminal:width to wid. if hgt > 0 set terminal:height to hgt.
 
     kpr:doevent("Open Terminal").
   }.
   global closeTerminal is { parameter kpr. if not kpr:istype("kOSProcessor") return. kpr:doevent("Close Terminal"). }.
-  global openCoreTerminal is { parameter w is 0, h is 0. openTerminal(core:part:getmodule("kOSProcessor"), w, h). }.
+  global openCoreTerminal is { parameter wid is 0, hgt is 0. openTerminal(core:part:getmodule("kOSProcessor"), wid, hgt). }.
   global closeCoreTerminal is { closeTerminal(core:part:getmodule("kOSProcessor")). }.
   // Formatting
   global printAtPadL is
@@ -42,7 +47,7 @@
     if py:istype("String") set py to py:tonumber().
     if pad:istype("String") set pad to pad:tonumber().
 
-    printAt(("" + t):padleft(pad), px, py).
+    printAt(("" + t):padleft(pad - px), px, py).
   }.
   global printAtPadR is
   {
@@ -52,43 +57,49 @@
     if py:istype("String") set py to py:tonumber().
     if pad:istype("String") set pad to pad:tonumber().
 
-    printAt(("" + t):padright(pad), px, py).
+    printAt(("" + t):padright(pad - px), px, py).
   }.
   global fmtScalarA is
   {
-    parameter str, ap is "", dp is 3, pad is true.
+    parameter n, ap is 0, dp is -1.
 
-    if str:istype("String") set str to str:tonumber().
-    if str:istype("Scalar")
+    if n:istype("String") set n to n:tonumber().
+    if n:istype("Scalar")
     {
-      if not dp:istype("Scalar") set dp to 3.
-      if not pad:istype("Boolean") set pad to true.
       if not ap:istype("String") set ap to "".
+      if not dp:istype("Scalar") or dp < 0 set dp to 3.
 
-      set dp to min(15, max(0, dp)). local t is "" + round(str, dp). set t to t + ap.
+      set dp to min(15, dp).
 
-      if not pad return t.
+      if dp = 0 set n to round(n).
+      else set n to round(n, dp).
 
-      return t:padright(t:length + dp + 2).
+      return n:tostring() + ap.
     }
 
     return "NaN".
   }.
-  global fmtScalar is { parameter str, dp is 3, pad is true. return fmtScalarA(str, "", dp, pad). }.
+  global fmtScalar is { parameter n, dp is -1. return fmtScalarA(n, "", dp). }.
   // Math
   // Test whether 2 numbers are nearly equal to within 1.0x10⁻⁶
   global nearlyEquals is
   {
-    parameter n1, n2, ep is 1.0e-6.
+    parameter n1, n2, ep is 0.
 
     if n1:istype("String") set n1 to n1:tonumber().
+    else if not n1:istype("Scalar") return false.
     if n2:istype("String") set n2 to n2:tonumber().
+    else if not n2:istype("Scalar") return false.
+
     if ep:istype("String") set ep to ep:tonumber().
+    else if not (ep:istype("Scalar") and ep > 0) set ep to 1.0e-6.
 
     return abs(n1 - n2) < ep.
   }.
-  // Test whether a vector is within 1.0x10⁻⁶ of a normalised vector
-  global isnormalized is { parameter v1. return nearlyEquals(v1:mag, 1). }.
+  // Test whether a vector is a normalised vector, 1² is still 1
+  global isnormalized is { parameter v1. if not v1:istype("Vector") return false. return nearlyEquals(v1:sqrmagnitude, 1). }.
+    // Alias
+    global isnormalised is isnormalized.
   // Cubed root - ∛n
   global cbrt is { parameter n. if n:istype("String") set n to n:tonumber(). if not n:istype("Scalar") return 0. return n^onethird. }.
   // <a href="https://en.wikipedia.org/wiki/Triple_product">Triple product</a>
@@ -101,6 +112,6 @@
     // Alias
     global vtrp is vectortripleproduct.
   // Fourth wall
-  global killWarp is { local tw is kuniverse:timewarp. if tw:warp > 0 { tw:cancelwarp(). until tw:issettled and ship:unpacked wait 0.01. } }.
+  global killWarp is { local tw is kuniverse:timewarp. if tw:warp > 0 { tw:cancelwarp(). wait until tw:issettled and ship:unpacked. } }.
   global doWarp is { parameter tm. if not tm:istype("Scalar") return. if tm > time:seconds { kuniverse:timewarp:warpto(tm). killWarp(). } }.
 }.
